@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::fallback(function () {
-    return redirect('/items');
+    return redirect('/items');//ログイン後にリダイレクトさせるURL
   });
 
 
