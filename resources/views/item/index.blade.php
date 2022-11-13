@@ -33,6 +33,8 @@
                                 <th>ID</th>
                                 <th>名前</th>
                                 <th>種別</th>
+                                <th>登録日</th>
+                                <th>更新日</th>
                                 <th>詳細</th>
                             </tr>
                         </thead>
@@ -42,7 +44,10 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
+                                    <td>{{ $item->created_at ? date("Y-m-d", strtotime($item->created_at)) : '' }}</td>
+                                    <td>{{$item->updated_at ? date("Y-m-d", strtotime($item->updated_at)) : '' }}</td>
                                     <td>{{ $item->detail }}</td>
+                                    <td><a href="/edit/{{ $item->id }}">編集</td>
                                 </tr>
                             @endforeach
                         </tbody>
