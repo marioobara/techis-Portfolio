@@ -24,6 +24,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::fallback(function () {
     return redirect('/items');//ログイン後にリダイレクトさせるURL
   });
+  Route::get('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('posts.index'); //検索を追加
 
 
 Route::prefix('items')->group(function () {

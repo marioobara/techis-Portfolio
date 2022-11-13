@@ -4,6 +4,12 @@
 
 @section('content_header')
     <h1>商品一覧</h1>
+    <div class="text-right">
+        <form action="{{ route('posts.index') }}" method="GET">
+          名前を入力<input type="text" name="keyword" value="">
+          <input type="submit" value="検索">
+        </form>
+      </div>
 @stop
 
 @section('content')
