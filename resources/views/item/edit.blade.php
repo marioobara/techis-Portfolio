@@ -43,6 +43,10 @@
                 @enderror
             </select>
         </div>
+        <div class="form-group">
+            <label for="stock">在庫</label>
+            <input type="text" class="form-control" id="stock" name="stock" placeholder="在庫数">
+        </div>
         <div class="form-group item">
             <label for="detail">詳細</label>
             <input type="text" name="detail" id="detail" class="form-control" value="{{ old('detail', $item->detail) }}">

@@ -35,6 +35,7 @@
                                 <th>ID</th>
                                 <th>名前</th>
                                 <th>種別</th>
+                                <th>在庫</th>
                                 <th>詳細</th>
                                 @can('isAdmin')
                                 <!-- 編集・操作列表示 -->
@@ -49,6 +50,7 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td class="type">{{config('const.type.'.$item -> type)}}</td>
+                                    <td>{{ $item->stock }}</td>
                                     <td>{{ $item->detail }}</td>
                                     @can('isAdmin')
                                     <!-- 編集・削除ボタン追加 -->

@@ -11,10 +11,12 @@ class Item extends Model
      *
      * @var array<int, string>
      */
+    // 制御を設ける際に記載する
     protected $fillable = [
         'user_id',
         'name',
         'type',
+        'stock',
         'detail',
     ];
 

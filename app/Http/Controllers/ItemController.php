@@ -43,12 +43,12 @@ class ItemController extends Controller
             $this->validate($request, [
                 'name' => 'required|max:100',
             ]);
-
             // 商品登録
             Item::create([
                 'user_id' => Auth::user()->id,
                 'name' => $request->name,
                 'type' => $request->type,
+                'stock' => $request->stock,
                 'detail' => $request->detail,
             ]);
 
@@ -80,6 +80,7 @@ class ItemController extends Controller
         $item = Item::where('id', '=', $request->id)->first();
         $item->name = $request->name;
         $item->type = $request->type;
+        $item->stock = $request->stock;
         $item->detail = $request->detail;
         $item->save();
 
@@ -90,6 +91,7 @@ class ItemController extends Controller
         $request->validate([
             'name' => 'required',
             'type' => 'nullable|numeric',
+            'stock' => 'nullable|numeric',
             'detail' => 'nullable|MAX:500',
         ]);
 
@@ -97,6 +99,7 @@ class ItemController extends Controller
         Item::create([
             'name' => $request->name,
             'type' => $request->type,
+            'stock' => $request->stock,
             'detail' => $request->detail,
             'user_id' => Auth::id()
 
