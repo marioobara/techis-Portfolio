@@ -57,4 +57,52 @@ class ItemController extends Controller
 
         return view('item.add');
     }
+    //削除
+    public function delete(Request $request)
+    {
+        $item = Item::find($request->id);
+        $item->delete();
+
+        return redirect('/items');
+    }
+
+    public function edit(Request $request)
+    {
+        $item = Item::where('id', '=', $request->id)->first();
+
+        return view('item.edit')->with([
+            'item' => $item,
+        ]);
+    }
+
+    public function itemEdit(Request $request)
+    {
+        $item = Item::where('id', '=', $request->id)->first();
+        $item->name = $request->name;
+        $item->type = $request->type;
+        $item->detail = $request->detail;
+        $item->save();
+
+        return redirect('/store');
+    }
+    public function itemStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'type' => 'nullable|numeric',
+            'detail' => 'nullable|MAX:500',
+        ]);
+
+        // 商品登録
+        Item::create([
+            'name' => $request->name,
+            'type' => $request->type,
+            'detail' => $request->detail,
+            'user_id' => Auth::id()
+
+        ]);
+
+        return redirect('/');
+    }
+
 }

@@ -20,9 +20,11 @@
                     <h3 class="card-title">商品一覧</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
+                            @can('isAdmin')
                             <div class="input-group-append">
                                 <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
                             </div>
+                            @endcan
                         </div>
                     </div>
                 </div>
@@ -33,9 +35,12 @@
                                 <th>ID</th>
                                 <th>名前</th>
                                 <th>種別</th>
-                                <th>登録日</th>
-                                <th>更新日</th>
                                 <th>詳細</th>
+                                @can('isAdmin')
+                                <!-- 編集・操作列表示 -->
+                                <th>編集</th>
+                                <th>操作</th>
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -43,11 +48,19 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->type }}</td>
-                                    <td>{{ $item->created_at ? date("Y-m-d", strtotime($item->created_at)) : '' }}</td>
-                                    <td>{{$item->updated_at ? date("Y-m-d", strtotime($item->updated_at)) : '' }}</td>
+                                    <td class="type">{{config('const.type.'.$item -> type)}}</td>
                                     <td>{{ $item->detail }}</td>
+                                    @can('isAdmin')
+                                    <!-- 編集・削除ボタン追加 -->
                                     <td><a href="/edit/{{ $item->id }}">編集</td>
+                                    <td>
+                                    <form action="{{ url('items/delete')}}" method="POST" onsubmit="return confirm('削除します。宜しいですか？');">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$item->id}}">
+                                    <input type="submit" value="削除" class="btn btn-danger">
+                                    </form>
+                                    </td>
+                                     @endcan
                                 </tr>
                             @endforeach
                         </tbody>

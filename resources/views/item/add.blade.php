@@ -30,7 +30,14 @@
 
                         <div class="form-group">
                             <label for="type">種別</label>
-                            <input type="number" class="form-control" id="type" name="type" placeholder="1, 2, 3, ...">
+                            <select type="text" name="type" class="form-control" required>
+                                @foreach (Config::get('const.type') as $key => $val)
+                                    <option value="{{ $key }}" @if( old('type')== $key) selected @endif>{{ $val }}</option>
+                                @endforeach
+                                @error('type')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </select>
                         </div>
 
                         <div class="form-group">
