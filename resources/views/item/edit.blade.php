@@ -45,7 +45,10 @@
         </div>
         <div class="form-group">
             <label for="stock">在庫</label>
-            <input type="text" class="form-control" id="stock" name="stock" placeholder="在庫数">
+            <input type="text" class="form-control" id="stock" name="stock" value="{{ old('stock', $item->stock) }}" placeholder="在庫数">
+            @error('stock')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div class="form-group item">
             <label for="detail">詳細</label>

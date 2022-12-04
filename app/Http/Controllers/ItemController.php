@@ -78,6 +78,13 @@ class ItemController extends Controller
 
     public function itemEdit(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'type' => 'nullable|numeric',
+            'stock' => 'required|numeric',
+            'detail' => 'nullable|MAX:500',
+        ]);
+
         $item = Item::where('id', '=', $request->id)->first();
         $item->name = $request->name;
         $item->type = $request->type;
