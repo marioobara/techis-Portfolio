@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="名前" value="{{old('name')}}">
                         </div>
 
                         <div class="form-group">
@@ -42,7 +42,7 @@
 
                         <div class="form-group">
                             <label for="stock">在庫</label>
-                            <input type="text" class="form-control" id="stock" name="stock" placeholder="在庫数">
+                            <input type="text" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" placeholder="在庫数" value="{{old('stock')}}">
                         </div>
                         <div class="form-group">
                             <label for="detail">詳細</label>
