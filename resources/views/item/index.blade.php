@@ -7,6 +7,11 @@
     <div class="text-right">
         <form action="{{ route('posts.index') }}" method="GET">
           名前を入力<input type="text" name="keyword" value="">
+          <select name="type_id" id="">
+            @foreach (Config::get('const.type') as $key => $val)
+                    <option value="{{ $key }}" @if( $type_id == $key) selected @endif>{{ $val }}</option>
+                @endforeach
+            </select>
           <input type="submit" value="検索">
         </form>
       </div>

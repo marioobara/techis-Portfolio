@@ -30,6 +30,7 @@ class HomeController extends Controller
     {
 
         $keyword = $request->input('keyword');
+        $type_id = $request->input('type_id');
         //keywordとはviewに記載している（form）の値を参照
 
 
@@ -39,6 +40,10 @@ class HomeController extends Controller
 
         if(!empty($keyword)) {//$keywordが空じゃない時に下記を実施
             $query->where('name', 'LIKE', "%{$keyword}%");
+
+        }//whereメソッドでLIKE検索を指定し、$keywordの両側に%をつけることで、部分一致検索を行います。またorWhereメソッドでOR検索を行います。
+        if(!empty($type_id)) {//$keywordが空じゃない時に下記を実施
+            $query->where('type', '=',$type_id);
         }//whereメソッドでLIKE検索を指定し、$keywordの両側に%をつけることで、部分一致検索を行います。またorWhereメソッドでOR検索を行います。
 
         $items = $query->get(); //$queryの値を全て取ってくる
@@ -46,7 +51,9 @@ class HomeController extends Controller
 
         // $items = Item::all();
         return view('item.index', [//viewで表示したいbladeを記述（item.indexと記述することによりview/item/index.blade.phpとなる）
-            'items' => $items //itemsの中に$items（44行目）の引数を渡す
+            'items' => $items,
+            'type_id' =>$type_id,
+            //itemsの中に$items（44行目）の引数を渡す
         ]);
     }
 }

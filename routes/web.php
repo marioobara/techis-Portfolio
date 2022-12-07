@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\ItemController::class, 'home'])->name('home');
 
 Route::fallback(function () {
     return redirect('/items');//ログイン後にリダイレクトさせるURL
   });
-  Route::get('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('posts.index'); //検索を追加
+  Route::get('/home', [App\Http\Controllers\ItemController::class, 'store'])->name('posts.index'); //検索を追加
 
 
 Route::prefix('items')->group(function () {
