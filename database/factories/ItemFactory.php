@@ -13,7 +13,7 @@ class ItemFactory extends Factory
      */
     public function definition()
     {
-        $names = ['肉','魚'];
+        $names = ['牛肉','魚','キャベツ','鶏肉','豚肉','シャーペン','塩','砂糖','ボールペン','唐揚げ'];
         return [
             'user_id' => function () {
                 return factory(App\Models\User::class)->create()->id;
