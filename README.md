@@ -1,35 +1,34 @@
-## 商品管理システム
+# 在庫管理一覧システム
 
-### 環境構築手順
+## 概要
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLかPostgreSQLのデータベース作成（名前：item_management）  
-  ローカルでMAMPを使用しているのであれば、MySQL推奨
-* .env にデータベース接続情報追加
-```
-例）
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=item_management
-DB_USERNAME=root
-DB_PASSWORD=root
-```
-* APP_KEY生成
-```
-$ php artisan key:generate
-```
-* Composerインストール
-```
-$ composer install
-```
-* フロント環境構築
-```
-$ npm install
-$ npm run dev
-```
-* マイグレーション
-```
-$ php artisan migrate
-```
+このシステムでは、店舗で扱う商品の在庫管理を行う事が出来ます。
+
+商品の新規登録から編集、削除を行う事ができ、各商品の在庫を調節する事ができます。
+
+
+## 主な機能
+- ログイン・ログアウト機能
+- 商品一覧画面
+- 商品新規登録、編集、削除機能
+- 商品在庫管理機能
+- 商品検索機能
+- 商品CSV出力
+
+
+## 開発環境
+PHP 7.4.30
+
+mysql ??
+
+laravel 8.83.25
+
+## 設計書ページ
+??
+
+## システム閲覧
+https://dashboard.heroku.com/apps/item-management-mario
+
+## テストアカウント
+メールアドレス：shota.nakajima@example.net
+パスワード：password			
