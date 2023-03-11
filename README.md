@@ -19,7 +19,7 @@
 ## 開発環境
 PHP 7.4.30
 
-mysql ??
+mysql 14.14
 
 laravel 8.83.25
 
