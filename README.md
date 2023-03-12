@@ -23,9 +23,6 @@ mysql 14.14
 
 laravel 8.83.25
 
-## 設計書ページ
-??
-
 ## システム閲覧
 https://dashboard.heroku.com/apps/item-management-mario
 
