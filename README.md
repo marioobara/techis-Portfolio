@@ -24,7 +24,7 @@ mysql 14.14
 laravel 8.83.25
 
 ## システム閲覧
-https://dashboard.heroku.com/apps/item-management-mario
+https://item-management-mario.herokuapp.com
 
 ## テストアカウント
 メールアドレス：shota.nakajima@example.net
